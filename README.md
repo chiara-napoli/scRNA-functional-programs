@@ -28,7 +28,7 @@ These representations are standardized and jointly organized using **MOFA+**, pr
   <img src="figures/pipeline.png" alt="Overview of the scRNA-seq functional program framework" width="100%">
 </p>
 
-*Framework overview reproduced from Napoli et al. (2026).*
+*Framework overview reproduced from Napoli et al. (2026), licensed under CC BY 4.0.*
 
 > **Important:** the four views are derived from the same transcriptomic measurement. They should therefore be interpreted as complementary computational representations rather than independent omics measurements.
 
