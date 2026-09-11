@@ -17,10 +17,10 @@ This repository provides a practical companion to the framework presented in:
 
 The framework starts from a single scRNA-seq measurement and derives four complementary functional representations:
 
-- **Gene expression** — transcriptional state
-- **TF regulon activity** — regulatory programs inferred with pySCENIC
-- **Metabolite-level features** — metabolic features predicted with scFEA
-- **Reaction fluxes** — metabolic reaction activities predicted with scFEA
+- **Gene expression** - transcriptional state
+- **TF regulon activity** - regulatory programs inferred with pySCENIC
+- **Metabolite-level features** - metabolic features predicted with scFEA
+- **Reaction fluxes** - metabolic reaction activities predicted with scFEA
 
 These representations are standardized and jointly organized using **MOFA+**, providing a shared latent representation for investigating coordinated transcriptional, regulatory, and metabolic programs.
 
