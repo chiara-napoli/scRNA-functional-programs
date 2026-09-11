@@ -23,5 +23,9 @@ The framework starts from a single scRNA-seq measurement and derives four comple
 - **Reaction fluxes** - metabolic reaction activities predicted with scFEA
 
 These representations are standardized and jointly organized using **MOFA+**, providing a shared latent representation for organizing and interpreting coordinated regulatory, metabolic, and transcriptional programs.
+<p align="center">
+  <img src="figures/pipeline.png" alt="Overview of the scRNA-seq functional program framework" width="100%">
+</p>
 
+*Overview of the framework, from transcriptome-derived functional representations to latent-factor modelling, post-modelling harmonization, clustering, feature selection, and integrative biological interpretation. Framework overview reproduced from Napoli et al. (2026).*
 > **Important:** the four views are derived from the same transcriptomic measurement. They should therefore be interpreted as complementary computational representations rather than independent omics measurements.
