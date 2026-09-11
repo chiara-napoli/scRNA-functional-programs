@@ -108,3 +108,62 @@ Check that:
 The views represent different feature spaces — genes, TF regulons,
 metabolites, and metabolic reactions — and do not need to contain matching
 features.
+
+---
+
+## 2. Prepare the views and learn the latent representation
+
+Once the four functional views have been constructed and aligned, they can be prepared for joint latent-factor modelling.
+
+### Standardize the views
+
+Before MOFA+ training, each view should be standardized across cells.
+
+In the published analysis, all four views were **z-score scaled across cells** to place features on a comparable scale before latent-factor modelling.
+
+This standardization is used for model fitting. It is important to retain the original, non-standardized values of each inferred view for downstream layer-specific analyses.
+
+Conceptually, the input consists of four aligned matrices:
+
+```text
+RNA expression        cells × genes
+TF activity           cells × regulons
+Metabolite features   cells × metabolites
+Reaction fluxes       cells × reactions
+```
+
+The feature spaces are different, but the cell dimension is shared across all views.
+
+### Multi-view modelling with MOFA+
+
+The standardized matrices are jointly modelled using **MOFA+**.
+
+In the published study:
+
+- MOFA+ version `1.16.0` was used;
+- the four views were modelled with Gaussian likelihoods;
+- a model with 10 latent factors was retained.
+
+The number of factors should be treated as a model-selection choice rather than a fixed property of the framework. In the published case study, 10 factors were selected after assessing model convergence and the variance explained across factors, with diminishing returns from additional factors.
+
+MOFA+ produces a shared low-dimensional representation of the cells while retaining view-specific feature loadings.
+
+### How to interpret the latent space
+
+In this framework, MOFA+ is used to **organize complementary functional projections of the same transcriptomic measurement**.
+
+The latent factors should therefore not be interpreted as integrating four independently measured molecular modalities or as increasing the amount of molecular information available from the experiment.
+
+Instead, they provide a structured representation of coordinated transcriptional, regulatory, and metabolic variation inferred from the same cells.
+
+Feature loadings can then be inspected across views to understand which genes, regulons, metabolites, and metabolic reactions contribute to each latent factor.
+
+### Before moving downstream
+
+At this stage, retain:
+
+- the MOFA+ latent factors for each cell;
+- the view-specific feature loadings;
+- the original non-z-scored values for downstream feature-level analyses.
+
+The latent factors provide the cell representation used in the next stage of the workflow.
